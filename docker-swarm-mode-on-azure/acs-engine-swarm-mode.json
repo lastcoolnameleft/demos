@@ -1,0 +1,36 @@
+{
+  "apiVersion": "vlabs",
+  "properties": {
+    "orchestratorProfile": {
+      "orchestratorType": "SwarmMode"
+    },
+    "masterProfile": {
+      "count": 1,
+      "dnsPrefix": "thfalgou-swarm-master",
+      "vmSize": "Standard_D2_v2"
+    },
+    "agentPoolProfiles": [
+      {
+        "name": "agentpublic",
+        "count": 3,
+        "vmSize": "Standard_D2_v2",
+        "dnsPrefix": "thfalgou-swarm-agent",
+        "ports": [
+          80,
+          443,
+          8080
+        ]
+      }
+    ],
+    "linuxProfile": {
+      "adminUsername": "thfalgou",
+      "ssh": {
+        "publicKeys": [
+          {
+            "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDjBBKNpQXXdpZn1WQKnoaL/HrWwjgginarHJfdunIrg6mk5A2t5S2I9hDPSEJ5pHdU7nc8vzixEgot4G6PiYrPglenXFl65xr6jhDdIuPSUYmWCwqMjX8XYl9nd9TUmFk0TmrLQrt9fcWOdhpmLpuPqQjiwFDkPBw10oz7foudLXdqkIS/7OtH8bG3rqsQhGgGfumY2CfA1mEPyXWBex9n0FTyoU+kU7CcZEk9H/leA1yRWASDf95ZsQ50kueAgV5puSWD80abwzFZgHRtoSWZ91tunELjaU6ZxAw1po6km74sZRkcPjbgWvg+CXmJv181ZZv7F4B8ynyvqBYO8wKgkvM/LD84LsAUjhdiwxWSbsR1sPjvWETUbzbDBdPG4wp/6auGfpuMJafser7XDCX5ider8Zive7nPJ/ZDcL/UjG9MmTSLdKV6A9B5+vLTOj0AV8MXlprI/HfYmoSsM0K6bPyUdUHcFhCx6ycLTwDS/sM0KpYEAFkIdOWngERbk30xOfemlJYa9Y0fsvsU7nlu943syeyiDTNwFbGB/rO2bcukv6ixk0tlOvc3uFP4bL/S3vLXhmWM9NuLHj4RrknxlZPr5D66Porvg3MD3bRSS5F/PEm8zBXn59TKUdCvKxHXrS/67TGF5PW29m7LBjZP8Ez66CHb4dl+ye9mzpMqkQ== tommy@lastcoolnameleft.com"
+          }
+        ]
+      }
+    }
+  }
+}
