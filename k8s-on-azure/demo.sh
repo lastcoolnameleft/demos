@@ -26,7 +26,7 @@ desc "Run kubectl proxy in background"
 run 'kubectl proxy &'
 run 'open http://localhost:8001/ui'
 run 'kubectl get all'
-desc "pod = group of one+ containers, the shared storage and options on how to run the contaienrs"
+desc "pod = group of one+ containers, the shared storage and options on how to run the containers"
 
 desc "Run python-helloworld"
 run 'kubectl run python-helloworld --image lastcoolnameleft/python-helloworld:latest'
