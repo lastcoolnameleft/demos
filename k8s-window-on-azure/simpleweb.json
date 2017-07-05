@@ -1,0 +1,1 @@
+{ "apiVersion": "v1", "kind": "Pod", "metadata": { "name": "simpleweb", "labels": { "name": "simpleweb" } }, "spec": { "containers": [ { "name": "simpleweb", "image": "fernandosanchez/simpleweb", "ports": [ { "containerPort": 80 } ] } ], "nodeSelector": { "beta.kubernetes.io/os": "linux" } } }
