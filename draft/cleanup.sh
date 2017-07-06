@@ -6,4 +6,4 @@ kubectl delete deploy/$DRAFT_APP_NAME-$DRAFT_APP_NAME
 kubectl delete service/$DRAFT_APP_NAME-$DRAFT_APP_NAME
 
 # Must come after 
-git clean -df
+git clean -dfX
