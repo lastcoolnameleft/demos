@@ -2,3 +2,4 @@ _output
 *.swp
 *.orig
 test/
+*.tgz
