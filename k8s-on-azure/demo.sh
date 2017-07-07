@@ -2,7 +2,7 @@
 
 . ../setup.sh
 
-RESOURCE_GROUP=tmp-k8s
+RESOURCE_GROUP=${RESOURCE_GROUP:-sandbox-k8s}
 
 desc "Deploy the Infrastructure for the Kubernetes cluster"
 
@@ -65,7 +65,7 @@ run "helm init"
 run "open https://helm.sh/"
 run "helm install stable/mediawiki"
 
-run "open http://github.com/kubernetes/charts/tree/master/stable"
+run "helm search"
 
 desc "What if we want to run something more interesting..."
 run "helm install --set minecraftServer.eula=true stable/minecraft"

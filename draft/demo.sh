@@ -10,7 +10,6 @@ BASE_DOMAIN=${BASE_DOMAIN:-draft.local}
 
 desc "Demo of Kubernetes Draft"
 if [ -z "$TMUX" ]; then echo "Make sure you are in tmux" && exit 1; fi
-if [ -z "$SUDO_COMMAND" ]; then echo "Need to run as sudo for modifying /etc/hosts" && exit 1; fi
 
 desc "If you're awesome, you're already using K8S on ACS and you can pull down the K8S Config easily:"
 desc "az acs kubernetes get-credentials -g $RESOURCE_GROUP -n $RESOURCE_GROUP"
@@ -47,7 +46,8 @@ run 'export SERVICE_IP=$(kubectl --namespace kube-system get services nginx-ingr
 run 'export DRAFT_APP_NAME=$(cat draft.toml | toml | jq ".environments.development.name" --raw-output)'
 run 'echo $SERVICE_IP'
 run 'echo $DRAFT_APP_NAME'
-run "echo $SERVICE_IP $DRAFT_APP_NAME.$BASE_DOMAIN | sudo tee /etc/hosts"
+desc "Run in a separate window:"
+desc "echo $SERVICE_IP $DRAFT_APP_NAME.$BASE_DOMAIN | sudo tee -a /etc/hosts"
 
 desc "Now make a change to the application"
 run "vi app.py"
