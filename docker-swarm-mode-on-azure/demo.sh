@@ -3,8 +3,9 @@
 . ../setup.sh
 
 desc "Generate ACS Engine"
-run "vi acs-engine-swarm-mode.json"
 desc "Don't forget to add the ssh key!"
+run ""
+run "vi acs-engine-swarm-mode.json"
 run "acs-engine generate acs-engine-swarm-mode.json"
 
 desc "Deploy the Infrastructure for the Swarm cluster"
