@@ -1,4 +1,4 @@
-# Product/Cool Toys demos
+# Intent
 
 Anyone that's ever given a live demo knows that you must offer an appropriate sacrifice to the Demo Gods.  In my experience, the most effective sacrifice is time and repetition.
 
