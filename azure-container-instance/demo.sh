@@ -15,8 +15,16 @@ run "az container create --name $CONTAINER_IMAGE --image $CONTAINER_IMAGE --reso
 desc "--> Wait for the instance to be available"
 run "az container show --name $CONTAINER_IMAGE --resource-group $RESOURCE_GROUP"
 
+desc "--> Fetch the Logs"
+run "az container logs --name $CONTAINER_IMAGE --resource-group $RESOURCE_GROUP"
+
 desc "--> Fetch the IP"
-run "az container show --name $CONTAINER_IMAGE --resource-group $RESOURCE_GROUP"
+run 'export IP=$(az container show --name $CONTAINER_IMAGE --resource-group $RESOURCE_GROUP | | jq -r ".ipAddress.ip)"'
+run 'echo $IP'
+
+desc "--> Curl the URL"
+run "curl $IP"
+run "curl $IP"
 
 desc "--> Fetch the Logs"
 run "az container logs --name $CONTAINER_IMAGE --resource-group $RESOURCE_GROUP"
