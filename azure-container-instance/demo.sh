@@ -15,21 +15,22 @@ run "az container create --name $CONTAINER_NAME  --image $CONTAINER_IMAGE --reso
 
 desc "--> Wait for the instance to be available"
 run "az container show --name $CONTAINER_NAME --resource-group $RESOURCE_GROUP"
+run "watch \"az container show --name $CONTAINER_NAME --resource-group $RESOURCE_GROUP | jq '.provisioningState'\""
 
 desc "--> Fetch the Logs"
 run "az container logs --name $CONTAINER_NAME --resource-group $RESOURCE_GROUP"
 
 desc "--> Fetch the IP"
-run 'export IP=$(az container show --name $CONTAINER_NAME --resource-group $RESOURCE_GROUP | | jq -r ".ipAddress.ip)"'
+run 'export IP=$(az container show --name $CONTAINER_NAME --resource-group $RESOURCE_GROUP | jq -r ".ipAddress.ip")'
 run 'echo $IP'
 
 desc "--> Curl the URL"
-run "curl $IP"
+run "watch curl -s --connect-timeout 2 -I $IP"
 run "curl $IP"
 
 desc "--> Fetch the Logs"
 run "az container logs --name $CONTAINER_NAME --resource-group $RESOURCE_GROUP"
 
-desc "--> Delete the container"
-run "az container delete --name $CONTAINER_NAME --resource-group $RESOURCE_GROUP"
+#desc "--> Delete the container"
+#run "az container delete --name $CONTAINER_NAME --resource-group $RESOURCE_GROUP"
 
