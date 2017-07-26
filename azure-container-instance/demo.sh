@@ -7,7 +7,7 @@ CONTAINER_IMAGE=${CONTAINER_IMAGE:-microsoft/aci-helloworld}
 CONTAINER_NAME=${CONTAINER_NAME:-mycontainer}
 
 desc "This demo showcases the Azure Container Instance"
-desc "As of this writing, tt requires being run in the Azure Cloud Shell"
+desc "As of this writing, it requires being run in the Azure Cloud Shell"
 
 desc "--> Create the Resource Group"
 run "az group create --name $RESOURCE_GROUP --location eastus"
