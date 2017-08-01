@@ -12,4 +12,4 @@ This repo is intended to satiate those digital deities through meticulously crea
   * `git clone git@github.com:lastcoolnameleft/demos.git`
   * `cd` to directory
   * `./demo.sh`
-The only real requirements is
+
