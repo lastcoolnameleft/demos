@@ -43,8 +43,8 @@ read -s
 desc "Don't forget to update /etc/hosts with endpoint"
 desc "kubectl --namespace kube-system get services nginx-ingress-nginx-ingress-controller"
 run 'export SERVICE_IP=$(kubectl --namespace kube-system get services nginx-ingress-nginx-ingress-controller --output json | jq --raw-output ".status.loadBalancer.ingress[0].ip")'
-run 'export DRAFT_APP_NAME=$(cat draft.toml | toml | jq ".environments.development.name" --raw-output)'
 run 'echo $SERVICE_IP'
+run 'export DRAFT_APP_NAME=$(cat draft.toml | toml | jq ".environments.development.name" --raw-output)'
 run 'echo $DRAFT_APP_NAME'
 desc "Run in a separate window:"
 desc "echo $SERVICE_IP $DRAFT_APP_NAME.$BASE_DOMAIN | sudo tee -a /etc/hosts"

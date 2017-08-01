@@ -8,7 +8,7 @@ desc "Deploy the Infrastructure for the Kubernetes cluster"
 
 desc "Run in a separate window:"
 desc "az group create -n $RESOURCE_GROUP -l southcentralus"
-desc "time az acs create -g $RESOURCE_GROUP -n $RESOURCE_GROUP -t Kubernetes --admin-username thfalgou"
+desc "time az acs create -g $RESOURCE_GROUP -n $RESOURCE_GROUP -t Kubernetes --admin-username $USER"
 run ""
 
 ../python-docker/demo.sh
