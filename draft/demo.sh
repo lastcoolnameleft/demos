@@ -14,7 +14,10 @@ if [ -z "$TMUX" ]; then echo "Make sure you are in tmux" && exit 1; fi
 desc "If you're awesome, you're already using K8S on ACS and you can pull down the K8S Config easily:"
 desc "az acs kubernetes get-credentials -g $RESOURCE_GROUP -n $RESOURCE_GROUP"
 
+desc "To Create the Azure Container Registry:"
 desc "az acr create -n $ACR_NAME -g $RESOURCE_GROUP --admin-enabled --sku Basic"
+desc "Get the ACR password:"
+desc "az acr credential show --name $ACR_NAME --query passwords[0].value"
 
 desc "Draft uses Helm to deploy"
 run "helm init"
